@@ -41,7 +41,7 @@ const mongoDBmodel = mongoose.model("shopSense",schema);
 router.post('/submit',async function(req,res){
   console.log(req.body)
 
-  res.send('got it')
+  
 
   bcrypt.hash(req.body.password, 10,  async function(err, hashedPass) {
     if(err){
@@ -56,11 +56,15 @@ router.post('/submit',async function(req,res){
       password:hashedPass
     })
 
-    const val = await data.save();
+    const val = await data.save().then(result=>{
+      res.status(201).send(result)
+    })
     // res.json(val);
   })
 
   // res.status(200).json(val)
+  // res.send('Sign up successfull ')
+  // res.json(val)
 
 });
 
