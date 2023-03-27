@@ -26,7 +26,7 @@ exports.getAllProducts = async (req,res) =>{
 
 
 //get product details
-exports.getProductDetails = async (req,res,next) =>{
+exports.getProductDetails = async (req,res) =>{
 
     const product = await Product.findById(req.params.id);
 
@@ -34,12 +34,12 @@ exports.getProductDetails = async (req,res,next) =>{
         return res.status(500).json({
             success:false,
             message:"Product not found"
-        });
+        })   
     }
 
     res.status(201).json({
         success:true,
-        products
+        product
     })
 }
 
