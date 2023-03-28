@@ -1,6 +1,6 @@
 const Product = require("../models/productModel")
-
-
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const ErrorHander = require("../utils/errorhandler");
 
 //create product --Admin
 exports.createProduct = async (req,res,next)=>{
@@ -26,22 +26,21 @@ exports.getAllProducts = async (req,res) =>{
 
 
 //get product details
-exports.getProductDetails = async (req,res,next) =>{
+exports.getProductDetails = catchAsyncErrors(async (req,res,next) =>{
 
-    const product = await Product.findById(req.params.id);
-
+    const product = await Product.findById(req.params.id)
+      
     if(!product){
-        return res.status(500).json({
-            success:false,
-            message:"Product not found"
-        });
+        return next(new ErrorHander("Product not found",404));
     }
+
+
 
     res.status(201).json({
         success:true,
-        products
+        product
     })
-}
+})
 
 
 //Update product --Admin
@@ -73,7 +72,7 @@ exports.updateProduct = async (req,res,next) =>{
 
 exports.deleteProduct = async(req,res,next)=>{
 
-    const product = await Product.findByIdAndRemove(req.params.id);
+    const product = await Product.findByIdAndDelete(req.params.id);
 
     if(!product){
         return res.status(500).json({
@@ -82,6 +81,7 @@ exports.deleteProduct = async(req,res,next)=>{
         });
     }
 
+    
 
     res.status(200).json({
         success:true,
