@@ -3,26 +3,26 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHander = require("../utils/errorhandler");
 
 //create product --Admin
-exports.createProduct = async (req,res,next)=>{
+exports.createProduct = catchAsyncErrors(async (req,res,next)=>{
     console.log(req.body);
     const product = await Product.create(req.body);
 
     res.status(201).json({
         success:true,
         product
-    })
-} 
+    });
+});
 
 
 //get all products
-exports.getAllProducts = async (req,res) =>{
+exports.getAllProducts = catchAsyncErrors(async (req,res) =>{
 
     const products = await Product.find();
     res.status(201).json({
         success:true,
         products
-    })
-}
+    });
+});
 
 
 //get product details
@@ -44,7 +44,7 @@ exports.getProductDetails = catchAsyncErrors(async (req,res,next) =>{
 
 
 //Update product --Admin
-exports.updateProduct = async (req,res,next) =>{
+exports.updateProduct = catchAsyncErrors( async (req,res,next) =>{
 
     let product = await Product.findById(req.params.id);
 
@@ -65,12 +65,12 @@ exports.updateProduct = async (req,res,next) =>{
         success:true,
         product 
     })
-}
+})
 
 
 //Delete product --Admin
 
-exports.deleteProduct = async(req,res,next)=>{
+exports.deleteProduct = catchAsyncErrors(async(req,res,next)=>{
 
     const product = await Product.findByIdAndDelete(req.params.id);
 
@@ -87,4 +87,4 @@ exports.deleteProduct = async(req,res,next)=>{
         success:true,
         message:"Product Daleted Successfully"
     })
-}
+})
