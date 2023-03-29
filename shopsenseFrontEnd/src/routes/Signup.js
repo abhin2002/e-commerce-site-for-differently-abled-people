@@ -19,11 +19,13 @@ const Signup=()=>{
   }
   
   const postdata=async(e)=>{
+    console.log("sign up clicked");
      e.preventDefault();
      const{name,email,password,conpassword}=user;
-      const res = await fetch("/",{method:"POST",
+      const res = await fetch("/register",{
+      method:"POST",
       headers:{
-      "Content-Type":"/json"
+      "Content-Type":"JSON"
       },
       body:JSON.stringify({
         name,email,password,conpassword
@@ -37,7 +39,7 @@ const Signup=()=>{
     }else{
       window.alert("Registration successfull");
       console.log("Registration successfull");
-      navigate("/login");
+      navigate("/Signin");
     }
   }
     return(
@@ -46,7 +48,7 @@ const Signup=()=>{
            height: "300%",}}>
        <div className="cover">
           <div className="form-body">
-          <form method="POST">
+          <form method="POST" onChange={postdata}>
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label>Username</label>
@@ -93,7 +95,7 @@ const Signup=()=>{
           onChange={handleInputs} />
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary" id="signupbtn" onClick={postdata}>
+          <button type="submit" className="btn btn-primary" id="signupbtn" >
             SUBMIT
           </button>
         </div>
