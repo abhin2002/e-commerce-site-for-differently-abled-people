@@ -9,8 +9,8 @@
     border-radius: 0px;
     background-color: #000000;
 }
-.navbar-logo{
-    color: #222;
+.navbar-logo h1{
+    color: #ffffff;
     font-size: 2rem;
     cursor: pointer;
 }

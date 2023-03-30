@@ -23,7 +23,7 @@ const Signup = () => {
     
 
     const { name, email, password, conpassword } = user;
-    const res = await fetch("/register", {
+    const res = await fetch("/api/v1/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
