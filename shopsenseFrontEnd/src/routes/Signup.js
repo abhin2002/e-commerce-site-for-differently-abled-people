@@ -1,116 +1,134 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Signup.css";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
-const Signup=()=>{
+const Signup = () => {
   const navigate = useNavigate();
-  const [user,setUser]=useState({
-    name:"", email:"", password:"", conpassword:""
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    conpassword: "",
   });
 
-  let name,value;
-  const handleInputs=(e)=>{
-    console.log(e);
-    name=e.target.name;
-    value=e.target.value;
-    setUser({...user,[name]:value});
-  }
-  
-  const postdata=async(e)=>{
-    console.log("sign up clicked");
-     e.preventDefault();
-     const{name,email,password,conpassword}=user;
-      const res = await fetch("/register",{
-      method:"POST",
-      headers:{
-      "Content-Type":"JSON"
-      },
-      body:JSON.stringify({
-        name,email,password,conpassword
-      })
+  const handleInputs = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUser({ ...user, [name]: value });
+  };
 
+  const handleSubmit = async (e) => {
+    console.log("submit has pressed");
+    e.preventDefault();
+    
+
+    const { name, email, password, conpassword } = user;
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        conpassword,
+      }),
     });
-    const data =await res.json();
-    if(res.status(422)||!data){
+    const data = await res.json();
+    if (res.status === 422 || !data) {
       window.alert("Invalid registration");
       console.log("Invalid registration");
-    }else{
-      window.alert("Registration successfull");
-      console.log("Registration successfull");
+    } else {
+      window.alert("Registration successful");
+      console.log("Registration successful");
       navigate("/Signin");
     }
-  }
-    return(
-        <div className="signup-body" style={{background:"linear-gradient(90deg, #ee6352, purple, #ee6352)",
-           animation: "gradient 15s ease infinite",
-           height: "300%",}}>
-       <div className="cover">
-          <div className="form-body">
-          <form method="POST" onChange={postdata}>
-        <h3>Sign Up</h3>
-        <div className="mb-3">
-          <label>Username</label>
-          <input
-            type="text"
-            name="name" 
-            className="form-control"
-            id="uname"
-            placeholder="Username"
-            value={user.name}
-            onChange={handleInputs}
-          />
+  };
+
+  return (
+    <div
+      className="signup-body"
+      style={{
+        background:
+          "linear-gradient(90deg, #ee6352, purple, #ee6352)",
+        animation: "gradient 15s ease infinite",
+        height: "300%",
+      }}
+    >
+      <div className="cover">
+        <div className="form-body">
+          <form onSubmit={handleSubmit}>
+            <h3>Sign Up</h3>
+            <div className="mb-3">
+              <label>Username</label>
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                id="uname"
+                placeholder="Username"
+                value={user.name}
+                onChange={handleInputs}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Email </label>
+              <input
+                type="email"
+                name="email"
+                className="form-control"
+                placeholder="Enter email"
+                id="email"
+                value={user.email}
+                onChange={handleInputs}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                className="form-control"
+                placeholder="Enter password"
+                id="password"
+                value={user.password}
+                onChange={handleInputs}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Confirm password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Confirm password"
+                id="cpassword"
+                name="conpassword"
+                value={user.conpassword}
+                onChange={handleInputs}
+              />
+            </div>
+            <div className="d-grid">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                id="signupbtn"
+              >
+                SUBMIT
+              </button>
+            </div>
+            <p className="forgot-password text-right">
+              <Link to="/signin">
+                <button className="sign-in">
+                  Already registered sign in?
+                </button>
+              </Link>
+            </p>
+          </form>
         </div>
-        <div className="mb-3">
-          <label>Email </label>
-          <input
-            type="email"
-            name="email" 
-            className="form-control"
-            placeholder="Enter email"
-            id="email"
-            value={user.email}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            placeholder="Enter password"
-            id="password"
-            value={user.password}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Confirm password</label>
-          <input type="password" className="form-control" placeholder="Confirm password"
-          id="cpassword"
-          name="conpassword"
-          value={user.conpassword}
-          onChange={handleInputs} />
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary" id="signupbtn" >
-            SUBMIT
-          </button>
-        </div>
-        <p className="forgot-password text-right">
-          <Link to="/signin">
-          <button className="sign-in">Already registered sign in?
-          </button>
-          </Link>
-        </p>
-      </form>   
-          </div>
-       </div>
-       </div>
-    );
-    
-}
+      </div>
+    </div>
+  );
+};
 
 export default Signup;
