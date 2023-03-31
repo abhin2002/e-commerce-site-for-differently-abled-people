@@ -3,8 +3,9 @@ import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+
   const navigate = useNavigate();
-  const [user, setUser] = useState({
+  const user = useState({
     name: "",
     email: "",
     password: "",
@@ -12,27 +13,27 @@ const Signup = () => {
   });
 
   const handleInputs = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setUser({ ...user, [name]: value });
-  };
+    console.log(e);
+   
+  }
 
   const handleSubmit = async (e) => {
     console.log("submit has pressed");
     e.preventDefault();
     
 
-    const { name, email, password, conpassword } = user;
+    const { name, email, password } = user;
     const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
         name,
         email,
         password,
-        conpassword,
+        // conpassword,
       }),
     });
     const data = await res.json();
@@ -44,6 +45,7 @@ const Signup = () => {
       console.log("Registration successful");
       navigate("/Signin");
     }
+    // return axios.post("http://localhost:4000/api/v1/register")
   };
 
   return (
@@ -58,8 +60,8 @@ const Signup = () => {
     >
       <div className="cover">
         <div className="form-body">
-          <form onSubmit={handleSubmit}>
-            <h3>Sign Up</h3>
+          <form method = "POST" onSubmit={handleSubmit}> 
+            <h3>Sign Up</h3> 
             <div className="mb-3">
               <label>Username</label>
               <input
