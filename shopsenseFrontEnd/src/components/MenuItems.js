@@ -11,12 +11,12 @@ export const MenuItems=[
     cName:"nav-links",
     icon:"fa-sharp fa-solid fa-circle-info"
 },
-{
+/*{
     title : "Projects",
     url :"/projects",
     cName:"nav-links",
     icon:"fa-sharp fa-solid fa-briefcase"
-},
+},*/
 {
     title : "Contact",
     url :"/contact",

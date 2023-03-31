@@ -32,7 +32,7 @@
   }
   
   .navbar__item a:hover {
-    color: #f00;
+    color: rgb(118, 36, 172);
   }
   
   .navbar__cart a {
@@ -57,10 +57,10 @@
     outline: none;
   }
   
-  .search-button {
+  .button.search-button {
     position: absolute;
     top: 100px;
-    right: 100px;
+    right: 90px;
     transform: translateY(-50%);
     color: #ffffff;
     background-color: #000000;
@@ -73,9 +73,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    padding: 30px 50px;
   }
   
-  .audio-btn {
+  .button.audio-btn {
     color: #000000;
     background-color: transparent;
     border: none;
@@ -84,8 +85,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-right: 150px;
+   padding: 10px;
   }
   
-  .audio-icon {
-    margin-right: 5px;
+ .audio-icon {
+    margin-right: 50px;
   }
