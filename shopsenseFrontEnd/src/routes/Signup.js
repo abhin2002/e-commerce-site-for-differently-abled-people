@@ -2,19 +2,26 @@ import React, { useState } from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Signup = () => {
 
   const navigate = useNavigate();
-  const user = useState({
+
+  const [user,setUser] = useState({
     name: "",
     email: "",
     password: "",
     conpassword: "",
   });
 
+  let name,value;
+
   const handleInputs = (e) => {
     console.log(e);
-   
+    name = e.target.name;
+    value = e.target.value;
+
+    setUser({...user,[name]:value})
   }
 
   const handleSubmit = async (e) => {
@@ -22,13 +29,8 @@ const Signup = () => {
     e.preventDefault();
     
 
-<<<<<<< HEAD
-    const { name, email, password } = user;
-    const res = await fetch("/register", {
-=======
     const { name, email, password, conpassword } = user;
     const res = await fetch("/api/v1/register", {
->>>>>>> 90e057cd926bae1f5616e6bf65f78d9fa5e5f35a
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,10 +44,11 @@ const Signup = () => {
       }),
     });
     const data = await res.json();
-    if (res.status === 422 || !data) {
+    if (res.status === 500 ||!data) {
       window.alert("Invalid registration");
       console.log("Invalid registration");
     } else {
+      console.log(data)
       window.alert("Registration successful");
       console.log("Registration successful");
       navigate("/Signin");
