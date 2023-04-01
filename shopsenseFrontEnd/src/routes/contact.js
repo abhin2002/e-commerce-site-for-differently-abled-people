@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
 import "./contact.css";
+import Footer from "./footer";
 import { Container, Row, Col } from "react-bootstrap";
 export default function contact() {
   return (   
@@ -35,6 +36,8 @@ export default function contact() {
         <a href="" class = "fa-brands fa-github"></a>
       </div>
     </form>
+    <Footer/>
   </div>
+  
   );
 }

@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-info">
-        <h2>ShopSense</h2>
-        <p>We're committed to making online shopping accessible for visually impaired people.</p>
+        <h6>ShopSense</h6>
+        <p1>We're committed to making online shopping accessible for visually impaired people.</p1>
       </div>
       <div className="footer-links">
         <ul>

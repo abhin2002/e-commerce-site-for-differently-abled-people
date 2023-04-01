@@ -22,8 +22,13 @@ const Signup = () => {
     e.preventDefault();
     
 
+<<<<<<< HEAD
     const { name, email, password } = user;
     const res = await fetch("/register", {
+=======
+    const { name, email, password, conpassword } = user;
+    const res = await fetch("/api/v1/register", {
+>>>>>>> 90e057cd926bae1f5616e6bf65f78d9fa5e5f35a
       method: "POST",
       headers: {
         "Content-Type": "application/json",
