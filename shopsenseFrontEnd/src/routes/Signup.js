@@ -40,7 +40,7 @@ const Signup = () => {
         name,
         email,
         password,
-        // conpassword,
+        conpassword,
       }),
     });
     const data = await res.json();
@@ -69,7 +69,7 @@ const Signup = () => {
     >
       <div className="cover">
         <div className="form-body">
-          <form method = "POST" onSubmit={handleSubmit}> 
+          <form method = "POST" onSubmit={handleSubmit} className="formsetting"> 
             <h3>Sign Up</h3> 
             <div className="mb-3">
               <label>Username</label>
