@@ -10,6 +10,7 @@ import Signin from "./routes/Signin";
 import Hero  from "./components/Hero";
 import Dashboard from "./components/Dashboard";
 import Profile from "./routes/profile";
+import Mobilepageone from "./routes/Mobilepageone";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/signin"  element={<Signin/>} />
         <Route path="/dashboard"  element={<Dashboard/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/electronics/mobiles" element={<Mobilepageone/>} />
       </Routes>
      
     </div>
