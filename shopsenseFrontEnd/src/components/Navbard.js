@@ -8,42 +8,21 @@ import { Link } from 'react-router-dom';
 
 
 const Navbard = () => {
-  const [searchText, setSearchText] = useState('');
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [searchHistory, setSearchHistory] = useState(['product1', 'product2', 'product3', 'product4', 'product5']);
-
+  const [searchInput, setSearchInput] = useState("");
+  const [searchHistory, setSearchHistory] = useState(["Groceries",
+  "Mobiles",
+  "Furniture","Lights","Laptops"]);
+  const handleRemoveHistory = (indexToRemove) => {
+    setSearchHistory((prevHistory) => {
+      const newHistory = [...prevHistory];
+      newHistory.splice(indexToRemove, 1);
+      return newHistory;
+    });
+  };
   const toggleMenu = (event) => {
     const menu = event.currentTarget.nextElementSibling;
     menu.classList.toggle('navbar-dropdown-menu-visible');
   }
-
-  const handleSearchTextChange = (event) => {
-    const searchText = event.target.value;
-    setSearchText(searchText);
-    if (searchText.length > 0) {
-      setShowSuggestions(true);
-    } else {
-      setShowSuggestions(false);
-    }
-  }
-
-  const handleSuggestionClick = (suggestion) => {
-    setSearchText(suggestion);
-    setShowSuggestions(false);
-  }
-
-  const renderSuggestions = () => {
-    return (
-      <div className="navbar-search-suggestions">
-        {searchHistory.map((suggestion, index) => (
-          <div key={index} className="navbar-search-suggestion" onClick={() => handleSuggestionClick(suggestion)}>
-            {suggestion}
-          </div>
-        ))}
-      </div>
-    );
-  }
-  
 
   return (
     <nav className="navbar" style={{ backgroundColor: "black" }}>
@@ -104,13 +83,37 @@ const Navbard = () => {
         </div>
       </ul>
       <div className="navbar-search">
-        <input type="text" placeholder="Search" className="navbar-search-input" />
-        <Link className="navbar-search-icon">
-          <i className="fa fa-search"></i>
-        </Link>
-        <Link className="navbar-mic-icon">
-          <i className="fa fa-microphone"></i>
-        </Link>
+      <input 
+        type="text" 
+        placeholder="Search" 
+        className="navbar-search-input" 
+        value={searchInput} 
+        onChange={(event) => {
+          setSearchInput(event.target.value);
+        }}
+      />
+      <Link className="navbar-search-icon">
+        <i className="fa fa-search"></i>
+      </Link>
+      <Link className="navbar-mic-icon">
+        <i className="fa fa-microphone"></i>
+      </Link>
+      {searchInput.length > 0 && (
+        <div className="navbar-search-recommendations">
+          <div className="navbar-search-history">
+            <div className="navbar-search-history-title">Search history:</div>
+            {searchHistory.map((item, index) => (
+              <div key={index} className="navbar-search-history-item">
+                <div className="search-history-item-text">{item}</div>
+                <div className="search-history-item-close" onClick={() => handleRemoveHistory(index)}><i class="fa fa-times" aria-hidden="true" style={{ color: 'purple', size: '100px',padding:"15px 270px",top:"50px" }}></i></div>
+              </div>
+            ))}
+          </div>
+          <div className="navbar-search-recommendations-list">
+            {/* display search recommendations here */}
+          </div>
+        </div>
+      )}
       </div>
       <div className="navbar-cart">
         <Link to="/cart" className="navbar-cart-link">

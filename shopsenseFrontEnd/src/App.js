@@ -10,6 +10,7 @@ import Signin from "./routes/Signin";
 import Hero  from "./components/Hero";
 import Dashboard from "./components/Dashboard";
 import Profile from "./routes/profile";
+
 export default function App() {
   return (
     <div className="App">
