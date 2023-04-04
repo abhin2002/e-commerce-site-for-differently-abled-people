@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
-
+import Footer from "./footer";
 
 function home(){
     return(
@@ -9,7 +9,7 @@ function home(){
         <Navbar />
         <Hero/>
         <div className='home-background' style={{color:"blue"}}>
-        
+        <Footer/>
         </div>
         </>
     )
