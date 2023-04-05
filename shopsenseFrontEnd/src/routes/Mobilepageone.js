@@ -7,62 +7,57 @@ const Mobilepageone = () => {
   // sample product data
   return (
     <div>
-    <Navbard/>
-    <div className="product-cards">
-        
-    
-      <div className="product-card">
-        <div className="product-image">
-          <img src="product1.jpg" alt="Product 1" />
+      <Navbard/>
+      <div className="product-cards-container">
+        <div className="product-card">
+          <div className="product-image">
+            <img url="../images/googlepixel4a-2" alt="Product 1" className="product-1"/>
+          </div>
+          <div className="product-details">
+            <h9>Google Pixel 4a</h9>
+            <p className="product-description">Product description</p>
+            <div className="product-icons">
+              <span className="product-icon"><i className="fas fa-heart"></i></span>
+              <span className="product-icon"><i className="fas fa-shopping-cart"></i></span>
+              <button className="buy-now-btn">Buy Now</button>
+              <span className="product-icon"><i className="fas fa-volume-up"></i></span>
+            </div>
+          </div>
         </div>
-        <div className="product-details">
-          <h2>Product 1</h2>
-          <p className="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <div className="product-icons">
-            <span className="product-icon"><i className="fas fa-heart"></i></span>
-            <span className="product-icon"><i className="fas fa-shopping-cart"></i></span>
-            <button className="buy-now-btn">Buy Now</button>
-            <span className="product-icon"><i className="fas fa-volume-up"></i></span>
+        <div className="product-card">
+          <div className="product-image">
+            <img src="" alt="Product 2" className="product-2"/>
+          </div>
+          <div className="product-details">
+            <h9>Redmi 11 Pro</h9>
+            <p className="product-description">Product description</p>
+            <div className="product-icons">
+              <span className="product-icon"><i className="fas fa-heart"></i></span>
+              <span className="product-icon"><i className="fas fa-shopping-cart"></i></span>
+              <button className="buy-now-btn">Buy Now</button>
+              <span className="product-icon"><i className="fas fa-volume-up"></i></span>
+            </div>
+          </div>
+        </div>
+        <div className="product-card">
+          <div className="product-image">
+            <img src="product3.jpg" alt="Product 3" className="product-3" />
+          </div>
+          <div className="product-details">
+            <h9>Samsung Galaxy F23</h9>
+            <p className="product-description">Product description</p>
+            <div className="product-icons">
+              <span className="product-icon"><i className="fas fa-heart"></i></span>
+              <span className="product-icon"><i className="fas fa-shopping-cart"></i></span>
+              <button className="buy-now-btn">Buy Now</button>
+              <span className="product-icon"><i className="fas fa-volume-up"></i></span>
+            </div>
           </div>
         </div>
       </div>
-      <div className="product-card">
-        <div className="product-image">
-          <img src="product2.jpg" alt="Product 2" />
-        </div>
-        <div className="product-details">
-          <h2>Product 2</h2>
-          <p className="product-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-          <div className="product-icons">
-            <span className="product-icon"><i className="fas fa-heart"></i></span>
-            <span className="product-icon"><i className="fas fa-shopping-cart"></i></span>
-            <button className="buy-now-btn">Buy Now</button>
-            <span className="product-icon"><i className="fas fa-volume-up"></i></span>
-          </div>
-        </div>
-      </div>
-      <div className="product-card">
-        <div className="product-image">
-          <img src="product3.jpg" alt="Product 3" />
-        </div>
-        <div className="product-details">
-          <h2>Product 3</h2>
-          <p className="product-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
-          <div className="product-icons">
-            <span className="product-icon"><i className="fas fa-heart"></i></span>
-            <span className="product-icon"><i className="fas fa-shopping-cart"></i></span>
-            <button className="buy-now-btn">Buy Now</button>
-            <span className="product-icon"><i className="fas fa-volume-up"></i></span>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    <PageScroller/>
+      <PageScroller/>
     </div>
   );
-
 };
-
 
 export default Mobilepageone;

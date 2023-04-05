@@ -9,7 +9,7 @@ function Hero(){
             
                 <p>Shop without limit.See with your heart </p>
                 <a href="/">
-                <Link to="/dashboard">
+                <Link to="/signin">
                     <button className="first-page-button">
                     Getting started 
                     </button>
