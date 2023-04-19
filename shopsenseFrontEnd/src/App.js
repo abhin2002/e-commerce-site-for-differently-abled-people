@@ -10,8 +10,11 @@ import Signin from "./routes/Signin";
 import Hero  from "./components/Hero";
 import Dashboard from "./components/Dashboard";
 import Profile from "./routes/profile";
-import Mobilepageoneadmin from "./routes/Mobilepageoneadmin";
+import Laptoppageoneadmin from "./routes/Laptoppageoneadmin";
 import Mobilepageone from "./routes/Mobilepageone";
+import Mobilepagetwo from "./routes/Mobilepagetwo";
+import Googlepixel4a from "./routes/Googlepixel4a";
+import ProductDescription from "./components/ProductDescription";
 
 export default function App() {
   return (
@@ -25,8 +28,11 @@ export default function App() {
         <Route path="/signin"  element={<Signin/>} />
         <Route path="/dashboard"  element={<Dashboard/>} />
         <Route path="/profile" element={<Profile/>} />
-       <Route path="/electronics/mobiles/admin" element={<Mobilepageoneadmin/>} />
+       <Route path="/electronics/laptops" element={<Laptoppageoneadmin/>} />
        <Route path="/electronics/mobiles" element={<Mobilepageone/>} />
+       <Route path="/Googlepixel4a" element={<Googlepixel4a/>} />
+       <Route path="/productdescription" element={<ProductDescription/>} />
+       <Route path="/electronics/mobiles2" element={<Mobilepagetwo/>} />
       </Routes>
      
     </div>
