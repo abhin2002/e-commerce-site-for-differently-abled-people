@@ -71,7 +71,20 @@ const Laptoppageoneadmin = () => {
         "Content-Type": "application/json",
         'Accept': 'application/json'
       },
-    })
+    });
+    const data = await response.json();
+    if (response.status === 201 ||!data) {
+      window.alert("Products cannot be added!");
+      window.alert(response.statusText)
+      console.log("Products cannot be added!");
+    } else {
+      console.log(data)
+      window.alert("Products have been added!!");
+      console.log("Products have been added!!");
+      
+    }
+    // return axios.post("http://localhost:4000/api/v1/register")
+
       /*.then((response) => response.json())
       .then((data) => {
         // Add the new product to the state
@@ -84,19 +97,7 @@ const Laptoppageoneadmin = () => {
     setProductData([...productData, product]);
     setFormInput({ name: "", category: "", price: "", stock: "", images: [],description:"" });
     */
-    if (res.status === 500 ||!data) {
-      window.alert("Invalid registration");
-      window.alert(res.statusText)
-      console.log("Invalid registration");
-    } else {
-      console.log(data)
-      window.alert("Registration successful");
-      console.log("Registration successful");
-      navigate("/Signin");
-    }
-    // return axios.post("http://localhost:4000/api/v1/register")
-  };
-
+   
   };
   
   return (
@@ -105,7 +106,7 @@ const Laptoppageoneadmin = () => {
     <div className="add-container">
        
         <h8>Add Laptop</h8>
-      <form onSubmit={handleSubmit}>
+      <form method="POST" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Product Name</label>
           <input
@@ -203,8 +204,9 @@ const Laptoppageoneadmin = () => {
       </div>
     </div>
     </div>
+    
   );
- 
-};
+    
+  };
 
 export default Laptoppageoneadmin;
