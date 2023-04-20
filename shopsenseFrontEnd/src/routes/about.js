@@ -3,6 +3,7 @@ import "../components/Heroabout.css";
 import Navbar from "../components/Navbar";
 import Heroabout from "../components/Heroabout";
 import Footer from "./footer";
+import ColorChanger from '../components/ColorChanger';
 import "./about.css";
 function about(){
     return(
@@ -47,6 +48,7 @@ function about(){
            <p>
           Thank you for choosing ShopSense. We look forward to serving you.
         </p>
+        <ColorChanger/>
         <Footer/>
         </div>
         

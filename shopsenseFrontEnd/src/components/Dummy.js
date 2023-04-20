@@ -1,31 +1,43 @@
-
 import './Navbard.css';
 import { FaSearch, FaMicrophone } from 'react-icons/fa';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import  { ReactComponent as Logo } from "../images/cart.svg";
+
 
 
 const Navbard = () => {
   const navigate = useNavigate();
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
-  async function handleLogout() {
-    setIsLoggingOut(true);
+  const [user, setUser] = useState(null);
+  const handleLogout = async (e)=> {
+    e.preventDefault();
+    console.log("log out called");
+    // Send a POST or DELETE request to your server's logout endpoint
+    const res = await fetch('/api/v1/logout', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
+      },
+      
+    })
+    const data = await res.json();
     try {
-      await fetch('/api/v1/logout', {
-        method: 'POST',
-        credentials: 'include',
-      });
-      console.log("log out called");
-      setIsLoggingOut(false);
-      window.alert("Logged out successfully");
+      await axios.post('/api/logout');
+      setUser(null);
       navigate('/');
     } catch (error) {
-      console.error('Logout failed', error);
-      setIsLoggingOut(false);
+      console.log('Logout failed.', error);
     }
+      /*.then(() => {
+        // Clear the user's authentication state in local storage or cookies
+        localStorage.removeItem('authToken');
+        // Redirect the user to the home page
+        history.push('/');
+      })
+      .catch((error) => console.error(error));*/
   }
   const [searchInput, setSearchInput] = useState("");
   const [searchHistory, setSearchHistory] = useState(["Groceries",
@@ -48,11 +60,6 @@ const Navbard = () => {
       <div method = "POST" onSubmit={handleLogout} className="navbar-logo">
         <Link to="/" className="navbar-logo-link">
           ShopSense
-          <Logo style={{width: "5%",
-           height: "5%",
-           position: "absolute",
-           left:"160px",
-           top:"20px"}}/>
         </Link>
       </div>
       <ul className="navbar-links">
@@ -153,7 +160,7 @@ const Navbard = () => {
           <Link to="/cart" className="navbar-dropdown-item">Cart</Link>
           <Link to="/orders" className="navbar-dropdown-item">Recent Orders</Link>
           <Link to="/settings" className="navbar-dropdown-item">Customize Settings</Link>
-          <Link to="/" className="navbar-dropdown-item" onClick={handleLogout}disabled={isLoggingOut}>{isLoggingOut ? 'Logging out...' : 'Logout'}</Link> 
+          <Link to="/" className="navbar-dropdown-item" onClick={handleLogout}>Logout</Link> 
         </div>
       </div>
     </nav>

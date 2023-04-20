@@ -54,6 +54,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
 // Logout User
 exports.logout = catchAsyncErrors(async (req, res, next) => {
+  console.log("log out called")
   res.cookie("token", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
@@ -63,4 +64,6 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
     success: true,
     message: "Logged Out",
   });
+
+  console.log("log out successfull")
 });

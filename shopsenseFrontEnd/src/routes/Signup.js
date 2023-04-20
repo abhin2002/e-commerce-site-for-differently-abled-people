@@ -122,7 +122,7 @@ const Signup = () => {
             <div className="d-grid">
               <button
                 type="submit"
-                className="btn btn-primary"
+                className="btn-primary-signup"
                 id="signupbtn"
               >
                 SUBMIT

@@ -175,4 +175,16 @@ body, html, .App, #root, .auth-wrapper {
     50% {background-position: right}
     100% {background-position: left}
   }
-  
+  .btn-primary-signup{
+    position: relative;
+    left: 220px;
+    text-align: center;
+    background-color: rgb(98, 222, 207);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 1px 60px;
+    border-radius: 2px;
+    margin: -70px 45px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
