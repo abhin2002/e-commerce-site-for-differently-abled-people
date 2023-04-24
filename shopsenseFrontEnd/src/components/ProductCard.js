@@ -19,6 +19,9 @@ const ProductCard = ({ name, description, likes,audio,buyNow,imageUrl="https://v
       <div className="product-card-buy-dash">
       <i className="fas fa-shopping-cart"></i> 
       </div>
+      <div className="product-card-arrow-dash">
+      <i className="fa fa-arrow-right"></i> {likes} 
+      </div>
       </div>
     </div>
   );

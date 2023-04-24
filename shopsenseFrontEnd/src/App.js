@@ -16,6 +16,7 @@ import Mobilepagetwo from "./routes/Mobilepagetwo";
 import Googlepixel4a from "./routes/Googlepixel4a";
 import ProductDescription from "./components/ProductDescription";
 import WithColorChanger from "./components/WithColorChanger";
+import OtpPage from "./routes/OtpPage";
 export default function App() {
   return (
     <div className="App">
@@ -33,6 +34,7 @@ export default function App() {
        <Route path="/Googlepixel4a" element={<Googlepixel4a/>} />
        <Route path="/productdescription" element={<ProductDescription/>} />
        <Route path="/electronics/mobiles2" element={<Mobilepagetwo/>} />
+       <Route path="/otp" element={<OtpPage/>} />
 
       </Routes>
     </div>

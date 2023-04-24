@@ -94,5 +94,10 @@
   .product-card-buy-dash{
     position:relative;
     left: 140px;
-    top: 37px;
+    top: 35px;
+  }
+  .product-card-arrow-dash{
+    position:relative;
+    left: 160px;
+    top: 34px;
   }

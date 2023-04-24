@@ -1,22 +1,20 @@
 import React from 'react';
 import './AdvertisementBox.css';
-
-
+import adImage1 from '../images/Ad1.jpg';
+import adImage2 from '../images/Ad2.jpg';
+import adImage3 from '../images/Ad3.jpg';
 const AdvertisementBox = () => {
   return (
     <div className="advertisement-box">
       <div className="advertisement-slider">
         <div className="advertisement-slide">
-          <h3>Latest Deals and Discounts!</h3>
-          <p>Get up to 50% off on all categories. Limited time offer!</p>
+        <img src={adImage1} alt="Advertisement" />
         </div>
         <div className="advertisement-slide">
-          <h3>Summer Sale!</h3>
-          <p>Shop now and get 30% off on all summer collections.</p>
+        <img src={adImage2} alt="Advertisement" />
         </div>
         <div className="advertisement-slide">
-          <h3>Flash Sale!</h3>
-          <p>Get extra 10% off on all products. Use code FLASH10 at checkout.</p>
+        <img src={adImage3} alt="Advertisement" />
         </div>
       </div>
       <div className="advertisement-dots">

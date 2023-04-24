@@ -1,82 +1,88 @@
 .product-description {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px;
-  }
-  
-  .product-images {
-    width: 10px;
-    margin-right: 40px;
-  }
-  
-  .product-image {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .product-image:hover {
-    transform: scale(1.1);
-  }
-  
-  .product-info {
-    width: 55%;
-  }
-  
-  .product-name {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .product-price {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .product-description-text {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 30px;
-  }
-  
-  .product-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .like-button,
-  .share-button,
-  .add-to-cart-button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .like-icon,
-  .share-icon,
-  .add-to-cart-icon {
-    font-size: 1.5rem;
-    margin-right: 5px;
-  }
-  
-  .like-icon.liked {
-    color: red;
-  }
-  
-  .add-to-cart-button {
-    border: 2px solid black;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-  }
-  
-  .add-to-cart-button:hover {
-    background-color: black;
-    color: white;
-  }
-  
+  display: flex;
+  margin: 50px;
+  font-family: sans-serif;
+}
+.product-images {
+  width: auto;
+  height: auto;
+  margin-right: 50px;
+  position: relative;
+  left:520px ;
+  top:-120px;
+}
+
+
+.product-info {
+  width: 50%;
+}
+
+.product-image {
+  width: 100%;
+}
+
+.product-name {
+  font-size: 100px;
+  font-weight: bold;
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  left: 520px;
+  top:-120px;
+}
+
+.product-price {
+  font-size: 28px;
+  color: #330a35;
+  margin-top: 10px;
+  position: relative;
+  left: 520px;
+  top:-120px;
+}
+.product-description-text {
+  margin-top: 20px;
+  line-height: 1.5;
+  position: relative;
+  left: 520px;
+  top:-120px;
+  color: #330a35;
+
+}
+
+
+.product-actions {
+  margin-top: 20px;
+}
+
+.like-button,
+.add-to-cart-button,
+.buy-now-button {
+  border: none;
+  background-color: #353330;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+  left: 420px;
+  top: -100px;
+}
+
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+}
+
+.add-to-cart-icon {
+  margin-right: 5px;
+}
+
+.like-icon {
+  margin-right: 5px;
+}
+
+.liked {
+  color: red;
+}
