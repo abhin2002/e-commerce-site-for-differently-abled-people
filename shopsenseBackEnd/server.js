@@ -2,8 +2,6 @@ const app = require("./app");
 const dotenv = require("dotenv");
 const connectDatabase = require("./config/database")
 
-const cors = require('cors');
-app.use(cors({origin:'https://e-commerce-site-for-visually-impaired-people.vercel.app/'}));
 
 //config
 

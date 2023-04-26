@@ -5,6 +5,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+const cors = require('cors');
+app.use(cors({origin:'https://e-commerce-site-for-visually-impaired-people.vercel.app/'}));
+
+
 const errorMiddleware = require("./middleware/error");
 
 //Routes import
