@@ -30,7 +30,7 @@ const Signin = () => {
     const { email, password } = user;
 
     try {
-      const res = await fetch("/api/v1/login", {
+      const res = await fetch("https://ecommersebackend-elrk.onrender.com/api/v1/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
