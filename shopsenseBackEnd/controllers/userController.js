@@ -2,7 +2,7 @@ const ErrorHander = require("../utils/errorhandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel");
 const sendToken = require("../utils/jwtToken")
-
+const cloudinary = require("cloudinary");
 
 
 // Register a User
@@ -67,4 +67,15 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
   });
 
   console.log("log out successfull")
+});
+
+
+// Get User Detail
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findById(req.user.id);
+
+  res.status(200).json({
+    success: true,
+    user,
+  });
 });
