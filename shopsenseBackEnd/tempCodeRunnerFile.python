@@ -1,0 +1,49 @@
+def northwest_corner_method(supply, demand, costs):
+    m, n = len(supply), len(demand)
+    allocation = [[0]*n for _ in range(m)]
+    
+    i, j = 0, 0
+    total_cost = 0
+    while i < m and j < n:
+        if supply[i] < demand[j]:
+            allocation[i][j] = supply[i]
+            total_cost += supply[i] * costs[i][j]
+            demand[j] -= supply[i]
+            i += 1
+        else:
+            allocation[i][j] = demand[j]
+            total_cost += demand[j] * costs[i][j]
+            supply[i] -= demand[j]
+            j += 1
+        
+        # Print the current table
+        print("Iteration:", i+j-1)
+        for k in range(m):
+            for l in range(n):
+                print("{:^4}".format(str(allocation[k][l])), end=" ")
+            print(" | {:^4}".format(str(supply[k])))
+        print("-"*(5*n+6))
+        for l in range(n):
+            print("{:^4}".format(str(demand[l])), end=" ")
+        print(" |")
+        print("\n")
+    
+    return allocation, total_cost
+# Take user input for the problem parameters
+m = int(input("Enter the number of sources: "))
+n = int(input("Enter the number of destinations: "))
+supply = list(map(int, input("Enter the supply values for each source (separated by spaces): ").split()))
+demand = list(map(int, input("Enter the demand values for each destination (separated by spaces): ").split()))
+costs = []
+for i in range(m):
+    row = list(map(int, input(f"Enter the transportation costs for source {i+1} (separated by spaces): ").split()))
+    costs.append(row)
+
+# Solve using North-West Corner method
+allocation, total_cost = northwest_corner_method(supply, demand, costs)
+
+# Print the optimal allocation and total cost
+print("\nOptimal Allocation:")
+for row in allocation:
+    print(row)
+print("Total Transportation Cost:", total_cost)
