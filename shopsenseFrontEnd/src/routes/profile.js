@@ -1,50 +1,119 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./Signin.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [shippingAddress, setShippingAddress] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleInputs = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit the form data to the backend
-    console.log('Form submitted');
-  }
+
+    // Check if passwords match
+    if (user.password !== user.confirmPassword) {
+      window.alert("Passwords do not match.");
+      return;
+    }
+
+    const { email, password } = user;
+
+    try {
+      //const res = await fetch("https://ecommersebackend-elrk.onrender.com/api/v1/login", {
+      const res = await fetch("http://localhost:4000/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        window.alert("Login successful");
+        navigate("/dashboard");
+      } else {
+        window.alert(data.message);
+      }
+    } catch (err) {
+      console.error(err);
+      window.alert("An error occurred.");
+    }
+  };
 
   return (
-    <div className="update-profile-container">
-      <h2>Update Profile</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+      <div className="cover">
+        <div className="form-body">
+          <form method="POST" onSubmit={handleSubmit}>
+            <h4>Login</h4>
+            <div className="mb-3">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                className="form-control"
+                placeholder="Enter email"
+                id="email"
+                value={user.email}
+                onChange={handleInputs}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                className="form-control"
+                placeholder="Enter password"
+                id="password"
+                value={user.password}
+                onChange={handleInputs}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                className="form-control"
+                placeholder="Confirm password"
+                id="confirmPassword"
+                value={user.confirmPassword}
+                onChange={handleInputs}
+              />
+            </div>
+
+            <div className="d-grid">
+              <button type="submit" className="btn-primary">
+                LOGIN
+              </button>
+            </div>
+
+            <Link to="/signup">
+              <button className="sign-up">Forgot password?</button>
+            </Link>
+          </form>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="address">Address:</label>
-          <textarea id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="shippingAddress">Shipping Address:</label>
-          <textarea id="shippingAddress" name="shippingAddress" value={shippingAddress} onChange={(e) => setShippingAddress(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="photo">Photo:</label>
-          <input type="file" id="photo" name="photo" accept="image/*" />
-        </div>
-        <button type="submit">Update</button>
-      </form>
-    </div>
+      </div>
+   
   );
-}
+};
 
 export default Profile;

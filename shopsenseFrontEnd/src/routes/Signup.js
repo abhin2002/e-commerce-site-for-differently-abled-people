@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useUserContext } from "./UserContext";
 
 const Signup = () => {
 
   const navigate = useNavigate();
-
+  const { setUserCon } = useUserContext();
   const [user,setUser] = useState({
     name: "",
     email: "",
@@ -52,6 +52,7 @@ const Signup = () => {
       console.log(data)
       window.alert("Registration successful");
       console.log("Registration successful");
+      setUserCon(user);
       navigate("/Signin");
     }
     // return axios.post("http://localhost:4000/api/v1/register")

@@ -9,7 +9,7 @@ import Signup from "./routes/Signup";
 import Signin from "./routes/Signin";
 import Hero  from "./components/Hero";
 import Dashboard from "./components/Dashboard";
-import Profile from "./routes/profile";
+import Profile from "./routes/Profile";
 import Laptoppageoneadmin from "./routes/Laptoppageoneadmin";
 import Mobilepageone from "./routes/Mobilepageone";
 import Mobilepagetwo from "./routes/Mobilepagetwo";
@@ -18,9 +18,12 @@ import ProductDescription from "./components/ProductDescription";
 import WithColorChanger from "./components/WithColorChanger";
 import OtpPage from "./routes/OtpPage";
 import Customizeproduct from "./routes/Customizeproduct";
+
+import { UserProvider } from "./routes/UserContext";
 export default function App() {
   return (
     <div className="App">
+      <UserProvider>
       <Routes>
         
         <Route path="/" element={ <Home />}/>
@@ -38,8 +41,9 @@ export default function App() {
        <Route path="/electronics/mobiles2" element={<Mobilepagetwo/>} />
        <Route path="/otp" element={<OtpPage/>} />
        <Route path="/productcustomize" element={<Customizeproduct/>} />
-
+       
       </Routes>
+      </UserProvider>
     </div>
   );
 }

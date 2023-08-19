@@ -1,11 +1,69 @@
 import React, { useState } from 'react';
 import './Customizeproduct.css';
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Customizeproduct() {
   const [selectedOption, setSelectedOption] = useState('');
   const [showAddProductForm, setShowAddProductForm] = useState(false);
   const [showDeleteProductForm, setShowDeleteProductForm] = useState(false);
   const [showUpdateProductForm, setShowUpdateProductForm] = useState(false);
+  const [newProduct, setNewProduct] = useState({
+    name: '',
+    description: '',
+    productPrice: 0,
+    productCategory: '',
+  });
+  const handleAddProductInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setNewProduct({...newProduct,[name]: value,});
+  };
+  // Handle form submission for adding a product
+  const handleAddProductSubmit = async (e) => {
+    e.preventDefault();
+    
+    const { productName, productPrice, productDescription, productCategory} = newProduct;
+    if (!productName || !productPrice || !productDescription || !productCategory ) {
+      window.alert('Please fill out all required fields.');
+      return;
+  }
+  const formData = new FormData();
+  formData.append('productName', productName);
+  formData.append('productPrice', productPrice);
+  formData.append('productDescription', productDescription);
+  formData.append('productCategory', productCategory);
+  
+  try {
+    const res = await fetch('http://localhost:4000/api/v1/product/new', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (res.status === 201) {
+      window.alert('Product added successfully');
+      // Reset the form and close it
+      setNewProduct({
+        productName: '',
+        productPrice: 0,
+        productDescription: '',
+        productCategory: '',
+      });
+      setShowAddProductForm(false);
+    } else {
+      window.alert(data.message);
+    }
+  } catch (err) {
+    console.error('Error adding product:', err);
+    window.alert('An error occurred while adding the product.');
+  } 
+};
+    
+    
+  
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -23,7 +81,7 @@ function Customizeproduct() {
       setShowAddProductForm(false);
       setShowDeleteProductForm(false);
     }
-  };
+};
 
   return (
     <div className="Productsettings">
@@ -53,27 +111,22 @@ function Customizeproduct() {
       {showAddProductForm && (
         <div className="add-product-form">
           <h2>Add Product</h2>
-          <form>
-            <label>
+          <form onSubmit={handleAddProductSubmit}>
+          <label>
               Product Name:
-              <input type="text" name="productName" />
+              <input type="text" name="productName" value={newProduct.productName} onChange={handleAddProductInput} />
             </label>
             <label>
               Product Price:
-              <input type="number" name="productPrice" />
+              <input type="number" name="productPrice" value={newProduct.productPrice} onChange={handleAddProductInput}/>
             </label>
             <label>
               Product Description:
-              <textarea name="productDescription" />
+              <textarea name="productDescription" value={newProduct.productDescription} onChange={handleAddProductInput}/>
             </label>
             <label>
               Product Category:
-              <select name="productCategory">
-                <option value="groceries">Groceries</option>
-                <option value="beauty">Beauty</option>
-                <option value="fashion">Fashion</option>
-                <option value="electronics">Electronics</option>
-              </select>
+              <textarea name="productCategory" value={newProduct.productCategory} onChange={handleAddProductInput}/>
             </label>
             <label>
               Product Images (up to 3):
@@ -83,18 +136,7 @@ function Customizeproduct() {
           </form>
         </div>
       )}
-     {showDeleteProductForm && (
-      <div className="delete-product-form">
-        <h2>Delete Product</h2>
-        {/* ... Delete Product Form ... */}
-      </div>
-    )}
-    {showUpdateProductForm && (
-      <div className="update-product-form">
-        <h2>Update Product</h2>
-        {/* ... Update Product Form ... */}
-      </div>
-    )}
+      {/* ... Other JSX ... */}
     </div>
   );
 }
