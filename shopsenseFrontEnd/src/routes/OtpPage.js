@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import jsPDF from 'jspdf';
-import logoImg from '../images/shop.png';
+import Img from '../images/shop.png';
 const OtpPage = () => {
   const [otp, setOTP] = useState('');
   const [generatedOTP, setGeneratedOTP] = useState('');
@@ -24,7 +24,7 @@ const OtpPage = () => {
     const doc = new jsPDF();
     doc.text('ShopSense',10,10);
     // Add logo image to the PDF
-doc.addImage(logoImg, 'PNG', 10, 10, 50, 50);
+doc.addImage(Img, 'PNG', 10, 10, 50, 50);
 
 // Set font and text color
 doc.setFont('helvetica', 'bold');
@@ -36,8 +36,8 @@ doc.text('Invoice', 70, 25);
 
 // Add customer details
 doc.setFontSize(12);
-doc.text('Customer Name: John Doe', 10, 70);
-doc.text('Address: 123 Main St', 10, 80);
+doc.text('Customer Name: ', 10, 70);
+doc.text('Address: ', 10, 80);
 
 // Add item table with designs
 doc.setFontSize(12);
@@ -48,15 +48,10 @@ doc.line(10, 102, 180, 102);
 doc.rect(10, 105, 170, 80);
 doc.line(70, 105, 70, 185);
 doc.line(120, 105, 120, 185);
-doc.text('Product A', 15, 115);
-doc.text('2', 75, 115);
-doc.text('$50', 125, 115);
-doc.text('Product B', 15, 135);
-doc.text('1', 75, 135);
-doc.text('$25', 125, 135);
-doc.text('Product C', 15, 155);
-doc.text('3', 75, 155);
-doc.text('$75', 125, 155);
+doc.text('Google Pixel 4a', 15, 115);
+doc.text('1', 75, 115);
+doc.text('22985 Rs', 125, 115);
+
 
 // Set background color and add footer
 doc.setFillColor('#eeeeee');
