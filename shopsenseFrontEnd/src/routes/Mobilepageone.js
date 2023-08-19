@@ -60,7 +60,7 @@ const Mobilepageone = () => {
       <div className="product-cards-container">
         <div className="product-card">
           <div className="product-images-container">
-            <img src={MobileImage1} alt="Product 1" className="product-image"id="image1"/>
+          <img src={MobileImage1} alt="Product 1" className="product-image"id="image1"/>
             <img src={MobileImage2} alt="Product 2" className="product-image" id="image2"/>
             <img src={MobileImage3} alt="Product 3" className="product-image"id="image3"/>
           </div>

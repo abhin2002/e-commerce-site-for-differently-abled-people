@@ -13,10 +13,6 @@
 }
 
 
-.product-info {
-  width: 50%;
-}
-
 .product-image {
   width: 100%;
 }
@@ -33,33 +29,57 @@
 
 .product-price {
   font-size: 28px;
-  color: #330a35;
+  color:rgb(73, 37, 118);
   margin-top: 10px;
   position: relative;
   left: 520px;
   top:-120px;
+  /* Add border properties */
+  border: 2px solid rgb(111, 33, 147);
+  padding: 5px; 
 }
 .product-description-text {
   margin-top: 20px;
   line-height: 1.5;
   position: relative;
   left: 520px;
-  top:-120px;
-  color: #330a35;
-
+  top: -120px;
+  color: #000000;
+  font-size: 5px;
+  font-family:'Times New Roman', Times, serif;
+}
+.product-description-text ul {
+  list-style: none;
+  padding-left: 1em; /* Adjust spacing */
 }
 
+.product-description-text li {
+  position: relative;
+  margin-bottom: 0.5em; /* Adjust spacing between list items */
+}
+
+.product-description-text li::before {
+  content: '\2022'; /* Use the code for your chosen icon */
+  position: absolute;
+  left: -1em; /* Adjust the distance from the list item */
+}
+.p3{
+  font-size: small;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 .product-actions {
   margin-top: 20px;
 }
 
+
 .like-button,
+.speak-description-button,
 .add-to-cart-button,
 .buy-now-button {
   border: none;
-  background-color: #353330;
-  color: white;
+  background-color: #f3f1f0;
+  color: rgb(4, 4, 4);
   font-size: 18px;
   padding: 10px 20px;
   cursor: pointer;
@@ -67,7 +87,7 @@
   margin-right: 10px;
   position: relative;
   left: 420px;
-  top: -100px;
+  top: -140px;
 }
 
 .add-to-cart-button {
@@ -81,8 +101,12 @@
 
 .like-icon {
   margin-right: 5px;
+  color: #000000;
 }
 
 .liked {
-  color: red;
+  color: rgb(95, 9, 9);
+}
+.Googlepixel{
+  background-color: #e0dddd;
 }

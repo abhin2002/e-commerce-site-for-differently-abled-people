@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 
-const ProductCard = ({ name, description, likes,audio,buyNow,imageUrl="https://via.placeholder.com/150" }) => {
+const ProductCard = ({ name, description, likes,audio,buyNow,imageUrl }) => {
   return (
     <div className="product-card-dash">
       <div className="product-image-container">
