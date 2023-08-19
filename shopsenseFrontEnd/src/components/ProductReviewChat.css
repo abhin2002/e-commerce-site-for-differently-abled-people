@@ -1,6 +1,6 @@
 .product-review-chat {
-    border: 1px solid #154d16;
-    background-color: #1a6332;
+    border: 1px solid #3e154d;
+    background-color: #440a6b;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
@@ -8,8 +8,9 @@
     overflow: hidden;
   }
   
-  .product-review-chat h2 {
+  .product-review-chat h10 {
     margin: 0;
+    color: #ccc;
   }
   
   .product-review-chat p {
@@ -20,6 +21,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+    color: beige;
   }
   
   .review.self {
@@ -45,6 +47,7 @@
     border-radius: 5px;
     background-color: #337b68;
     word-wrap: break-word;
+    width: 700px;
   }
   
   .images {
@@ -112,7 +115,7 @@
   }
   
   .review {
-    border: 1px solid #ccc;
+    border: 1px solid #f7f7f7;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 10px;
@@ -211,8 +214,8 @@
   }
   
 .product-review-chat {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 0px auto 0; /* Added margin-top */
     padding: 20px;
     border: 1px solid #faf3f3;
     border-radius: 4px;
@@ -238,7 +241,7 @@
     padding: 10px;
     font-size: 16px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     outline: none;
   }
   
@@ -348,4 +351,29 @@
   .product-review-chat .review-message {
     color: #bcb6b6;
   }
-  
+  /* Add your existing CSS styles here */
+
+/* Style for the like button */
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.like-button button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  color: rgb(255, 255, 255); /* Customize the color for liked icon */
+}
+
+.like-button button.liked {
+  color: rgb(72, 11, 2); /* Customize the color for liked icon */
+}
+
+.like-count {
+  font-size: 1rem;
+}

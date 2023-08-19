@@ -9,6 +9,20 @@ import  { ReactComponent as Logo } from "../images/cart.svg";
 
 
 const Navbard = () => {
+  const [searchInput, setSearchInput] = useState("");
+  const [searchHistory, setSearchHistory] = useState([
+    "Groceries",
+    "Mobiles",
+    "Furniture",
+    "Lights",
+    "Laptops",
+  ]);
+
+
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
+    // Perform search logic or update state as needed
+  };
   const navigate = useNavigate();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   async function handleLogout() {
@@ -27,10 +41,7 @@ const Navbard = () => {
       setIsLoggingOut(false);
     }
   }
-  const [searchInput, setSearchInput] = useState("");
-  const [searchHistory, setSearchHistory] = useState(["Groceries",
-  "Mobiles",
-  "Furniture","Lights","Laptops"]);
+
   const handleRemoveHistory = (indexToRemove) => {
     setSearchHistory((prevHistory) => {
       const newHistory = [...prevHistory];
@@ -107,37 +118,25 @@ const Navbard = () => {
         </div>
       </ul>
       <div className="navbar-search">
-      <input 
-        type="text" 
-        placeholder="Search" 
-        className="navbar-search-input" 
-        value={searchInput} 
-        onChange={(event) => {
-          setSearchInput(event.target.value);
-        }}
-      />
-      <Link className="navbar-search-icon">
-        <i className="fa fa-search"></i>
-      </Link>
-      <Link className="navbar-mic-icon">
-        <i className="fa fa-microphone"></i>
-      </Link>
-      {searchInput.length > 0 && (
-        <div className="navbar-search-recommendations">
-          <div className="navbar-search-history">
-            <div className="navbar-search-history-title">Search history:</div>
-            {searchHistory.map((item, index) => (
-              <div key={index} className="navbar-search-history-item">
-                <div className="search-history-item-text">{item}</div>
-                <div className="search-history-item-close" onClick={() => handleRemoveHistory(index)}><i class="fa fa-times" aria-hidden="true" style={{ color: 'purple', size: '100px',padding:"15px 270px",top:"50px" }}></i></div>
-              </div>
-            ))}
+        <input
+          type="text"
+          placeholder="Search"
+          className="navbar-search-input"
+          value={searchInput}
+          onChange={handleInputChange}
+        />
+        <Link className="navbar-search-icon">
+          <FaSearch />
+        </Link>
+        <Link className="navbar-mic-icon">
+          <FaMicrophone />
+        </Link>
+        {searchInput && (
+          <div className="navbar-search-dropdown">
+            <p>Search results for "{searchInput}"</p>
+            {/* Render search results here */}
           </div>
-          <div className="navbar-search-recommendations-list">
-            {/* display search recommendations here */}
-          </div>
-        </div>
-      )}
+        )}
       </div>
       <div className="navbar-cart">
         <Link to="/cart" className="navbar-cart-link">

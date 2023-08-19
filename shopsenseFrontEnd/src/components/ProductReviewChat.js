@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "./ProductReviewChat.css";
 import EmojiPicker from "emoji-picker-react";
+import StarRatings from "react-star-ratings";
 
+const likeIcons = {
+  liked: "\u2665",    // Solid heart for liked reviews
+  notLiked: "\u2661" // Empty heart for not liked reviews
+};
 function ProductReviewChat() {
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
@@ -37,7 +42,7 @@ function ProductReviewChat() {
 
   return (
     <div className="product-review-chat">
-      <h2>Product Reviews</h2>
+      <h10>Product Reviews</h10>
       {reviews.length === 0 ? (
         <p>No reviews yet</p>
       ) : (
@@ -56,36 +61,27 @@ function ProductReviewChat() {
   </div>
   <div className="rating">
     <label htmlFor={`rating-${index}`}>Rating:</label>
-    <input
-      type="number"
-      id={`rating-${index}`}
-      name={`rating-${index}`}
-      min="1"
-      max="5"
-      value={rating}
-      onChange={handleRatingChange}
-    />
+    <StarRatings
+                rating={rating}
+                starRatedColor="orange"
+                changeRating={newRating => setRating(newRating)}
+                numberOfStars={5}
+                starDimension="20px"
+                starSpacing="2px"
+                name={`rating-${index}`}
+              />
   </div>
-  <div
-    className="like-button"
-    onClick={() => handleLike(index)}
-  >
-    {likedReviews.includes(index) ? (
-      <>
-        <span className="like-icon">&#x2661;</span>
-        <span className="like-count">
-          {likedReviews.filter((i) => i === index).length}
-        </span>
-      </>
-    ) : (
-      <>
-        <span className="like-icon">&#x2665;</span>
-        <span className="like-count">
-          {likedReviews.filter((i) => i === index).length}
-        </span>
-      </>
-    )}
-  </div>
+  <div className="like-button">
+              <button
+                onClick={() => handleLike(index)}
+                className={likedReviews.includes(index) ? "liked" : ""}
+              >
+                {likedReviews.includes(index) ? likeIcons.liked : likeIcons.notLiked}
+              </button>
+              <span className="like-count">
+                {likedReviews.filter((i) => i === index).length}
+              </span>
+            </div>
 </div>
         ))
       )}
