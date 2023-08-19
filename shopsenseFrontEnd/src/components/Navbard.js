@@ -152,6 +152,7 @@ const Navbard = () => {
           <Link to="/cart" className="navbar-dropdown-item">Cart</Link>
           <Link to="/orders" className="navbar-dropdown-item">Recent Orders</Link>
           <Link to="/settings" className="navbar-dropdown-item">Customize Settings</Link>
+          <Link to="/productcustomize" className="navbar-dropdown-item">Product settings</Link>
           <Link to="/" className="navbar-dropdown-item" onClick={handleLogout}disabled={isLoggingOut}>{isLoggingOut ? 'Logging out...' : 'Logout'}</Link> 
         </div>
       </div>
