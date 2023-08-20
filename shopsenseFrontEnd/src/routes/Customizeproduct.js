@@ -11,9 +11,12 @@ function Customizeproduct() {
   const [newProduct, setNewProduct] = useState({
     name: '',
     description: '',
-    productPrice: 0,
-    productCategory: '',
+    price: 0,
+    category: '',
   });
+  
+  let name,value;
+
   const handleAddProductInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -22,44 +25,55 @@ function Customizeproduct() {
   };
   // Handle form submission for adding a product
   const handleAddProductSubmit = async (e) => {
+    console.log("submit has pressed");
     e.preventDefault();
     
-    const { productName, productPrice, productDescription, productCategory} = newProduct;
-    if (!productName || !productPrice || !productDescription || !productCategory ) {
+    const { name, price, description, category} = newProduct;
+    if (!name || !price || !description || !category ) {
       window.alert('Please fill out all required fields.');
       return;
   }
-  const formData = new FormData();
-  formData.append('productName', productName);
-  formData.append('productPrice', productPrice);
-  formData.append('productDescription', productDescription);
-  formData.append('productCategory', productCategory);
+  // const formData = new FormData();
+  // formData.append('name', name);
+  // formData.append('price', price);
+  // formData.append('description', description);
+  // formData.append('category', category);
+  console.log(name,description,price,category);
+
   
-  try {
+    
     const res = await fetch('http://localhost:4000/api/v1/product/new', {
       method: 'POST',
-      body: formData,
-    });
+      headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        price,
+        description,
+        category,
 
+      })
+      
+    });
+    
     const data = await res.json();
 
     if (res.status === 201) {
       window.alert('Product added successfully');
       // Reset the form and close it
       setNewProduct({
-        productName: '',
-        productPrice: 0,
-        productDescription: '',
-        productCategory: '',
+        name: '',
+        price: 0,
+        description: '',
+        category: '',
       });
       setShowAddProductForm(false);
     } else {
       window.alert(data.message);
     }
-  } catch (err) {
-    console.error('Error adding product:', err);
-    window.alert('An error occurred while adding the product.');
-  } 
+  
 };
     
     
@@ -114,19 +128,19 @@ function Customizeproduct() {
           <form onSubmit={handleAddProductSubmit}>
           <label>
               Product Name:
-              <input type="text" name="productName" value={newProduct.productName} onChange={handleAddProductInput} />
+              <input type="text" name="name" value={newProduct.name} onChange={handleAddProductInput} />
             </label>
             <label>
               Product Price:
-              <input type="number" name="productPrice" value={newProduct.productPrice} onChange={handleAddProductInput}/>
+              <input type="number" name="price" value={newProduct.price} onChange={handleAddProductInput}/>
             </label>
             <label>
               Product Description:
-              <textarea name="productDescription" value={newProduct.productDescription} onChange={handleAddProductInput}/>
+              <textarea name="description" value={newProduct.description} onChange={handleAddProductInput}/>
             </label>
             <label>
               Product Category:
-              <textarea name="productCategory" value={newProduct.productCategory} onChange={handleAddProductInput}/>
+              <textarea name="category" value={newProduct.category} onChange={handleAddProductInput}/>
             </label>
             <label>
               Product Images (up to 3):

@@ -1,10 +1,11 @@
-// Profile.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Profile = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  console.log("Stored User:", storedUser);
+  const storedUser = JSON.parse(localStorage.getItem("user")) || {
+    name: "",
+    email: "",
+    phoneNumber: "",
+  };
   const [editing, setEditing] = useState(false);
   const [editedUser, setEditedUser] = useState(storedUser);
 
@@ -55,15 +56,15 @@ const Profile = () => {
               onChange={handleInputChange}
             />
           </div>
-          {/* Add other user information inputs here */}
-          <button onClick={handleSaveChanges}>Save Changes</button>
-        </div>
-      ) : (
-        <div>
           <p>Name: {storedUser.name}</p>
           <p>Email: {storedUser.email}</p>
           <p>Phone Number: {storedUser.phoneNumber}</p>
           {/* Add other user information here */}
+          <button onClick={handleSaveChanges}>Save Changes</button>
+        </div>
+      ) : (
+        <div>
+          {/* Display user information */}
           <button onClick={handleEditToggle}>Edit Profile</button>
         </div>
       )}
