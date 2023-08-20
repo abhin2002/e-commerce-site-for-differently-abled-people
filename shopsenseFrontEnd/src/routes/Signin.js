@@ -22,10 +22,10 @@ const Signin = () => {
     e.preventDefault();
 
     // Check if passwords match
-    if (user.password !== user.confirmPassword) {
-      window.alert("Passwords do not match.");
-      return;
-    }
+    // if (user.password !== user.confirmPassword) {
+    //   window.alert("Passwords do not match.");
+    //   return;
+    // }
 
     const { email, password } = user;
 
@@ -98,7 +98,7 @@ const Signin = () => {
               />
             </div>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label>Confirm Password</label>
               <input
                 type="password"
@@ -109,7 +109,7 @@ const Signin = () => {
                 value={user.confirmPassword}
                 onChange={handleInputs}
               />
-            </div>
+            </div> */}
 
             <div className="d-grid">
               <button type="submit" className="btn-primary">
