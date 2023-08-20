@@ -18,12 +18,16 @@ import ProductDescription from "./components/ProductDescription";
 import WithColorChanger from "./components/WithColorChanger";
 import OtpPage from "./routes/OtpPage";
 import Customizeproduct from "./routes/Customizeproduct";
-
+import { ColorProvider } from './routes/ColorContext';
 import { UserProvider } from "./routes/UserContext";
+import SettingsPage from "./routes/SettingsPage";
+import { FontProvider } from './routes/FontContext';
 export default function App() {
   return (
     <div className="App">
       <UserProvider>
+      <ColorProvider>
+      <FontProvider>
       <Routes>
         
         <Route path="/" element={ <Home />}/>
@@ -41,8 +45,10 @@ export default function App() {
        <Route path="/electronics/mobiles2" element={<Mobilepagetwo/>} />
        <Route path="/otp" element={<OtpPage/>} />
        <Route path="/productcustomize" element={<Customizeproduct/>} />
-       
+       <Route path="/settings" element={<SettingsPage/>} />
       </Routes>
+      </FontProvider>
+      </ColorProvider>
       </UserProvider>
     </div>
   );
