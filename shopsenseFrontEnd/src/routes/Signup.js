@@ -52,6 +52,7 @@ const Signup = () => {
     } else {
       console.log(data)
       window.alert("Registration successful");
+      localStorage.setItem("user", JSON.stringify(user));
       console.log("Registration successful");
       setUserCon(user);
       navigate("/Signin");

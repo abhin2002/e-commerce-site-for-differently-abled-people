@@ -8,7 +8,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaHeart, FaCartPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import React, { useState,useEffect  } from "react";
+import { useColor } from '../routes/ColorContext'; // Adjust the path based on your actual folder structure
 const Googlepixel4a = () => {
+  const { backgroundColor } = useColor();
   const [isLiked, setIsLiked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [isDescriptionActivated, setIsDescriptionActivated] = useState(false);
@@ -84,7 +86,7 @@ Other features: The Pixel 4a has a rear-mounted fingerprint sensor, an accelerom
     }
   };
   return (
-    <div className="Googlepixel">
+    <div className="Googlepixel" style={{ backgroundColor }}>
       <Navbard/>
     <div className="product-description">
       <div className="product-images">
