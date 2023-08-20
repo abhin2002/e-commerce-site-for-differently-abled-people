@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Profile = () => {
+const EditProfile = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
-  console.log("Stored User:", storedUser);
   const [editing, setEditing] = useState(false);
   const [editedUser, setEditedUser] = useState(storedUser);
 
@@ -71,4 +70,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default EditProfile;

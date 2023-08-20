@@ -22,6 +22,7 @@ import { ColorProvider } from './routes/ColorContext';
 import { UserProvider } from "./routes/UserContext";
 import SettingsPage from "./routes/SettingsPage";
 import { FontProvider } from './routes/FontContext';
+import EditProfile from "./routes/EditProfile";
 export default function App() {
   return (
     <div className="App">
@@ -46,6 +47,7 @@ export default function App() {
        <Route path="/otp" element={<OtpPage/>} />
        <Route path="/productcustomize" element={<Customizeproduct/>} />
        <Route path="/settings" element={<SettingsPage/>} />
+       <Route path="/edit-profile" element={<EditProfile/>} />
       </Routes>
       </FontProvider>
       </ColorProvider>
