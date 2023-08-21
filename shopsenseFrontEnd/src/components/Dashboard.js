@@ -126,12 +126,12 @@ const Dashboard = () => {
       <h1>Recently Added Items</h1>
       <div className="product-row">
         {/* Map through the products and render ProductCard components */}
-        {products.slice(0, 3).map((product) => (
+        {products.slice(0, 4).map((product) => (
           <ProductCard
             key={product._id}
             name={product.name}
             description={product.description}
-            // Add other product properties here as needed
+            imageUrl={product.images}
           />
         ))}
       </div>
