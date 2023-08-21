@@ -23,6 +23,8 @@ import { UserProvider } from "./routes/UserContext";
 import SettingsPage from "./routes/SettingsPage";
 import { FontProvider } from './routes/FontContext';
 import EditProfile from "./routes/EditProfile";
+import Vegetablesone from "./routes/Vegetablesone";
+import LadiesFinger from "./routes/Ladiesfinger";
 export default function App() {
   return (
     <div className="App">
@@ -47,7 +49,11 @@ export default function App() {
        <Route path="/otp" element={<OtpPage/>} />
        <Route path="/productcustomize" element={<Customizeproduct/>} />
        <Route path="/settings" element={<SettingsPage/>} />
-       <Route path="/edit-profile" element={<EditProfile/>} />
+       <Route path="/groceries/vegetables" element={<Vegetablesone/>} />
+       <Route path="/ladiesfinger" element={<LadiesFinger/>} />
+       
+
+       
       </Routes>
       </FontProvider>
       </ColorProvider>

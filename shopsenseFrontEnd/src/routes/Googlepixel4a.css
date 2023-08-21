@@ -1,9 +1,9 @@
-.product-description {
+.product-description-mobile {
   display: flex;
   margin: 50px;
   font-family: sans-serif;
 }
-.product-images {
+.product-images-mobile {
   width: auto;
   height: auto;
   margin-right: 50px;
@@ -13,11 +13,19 @@
 }
 
 
-.product-image {
-  width: 100%;
+/* Googlepixel4a.css */
+
+.product-image-mobile {
+  width: 100%; /* Set the width to 100% to stretch images across the slider */
+  max-width: 500px; /* Set a maximum width to avoid overly large images */
+  height: auto; /* Automatically adjust height while maintaining aspect ratio */
+  display: block; /* Override default inline behavior to fix layout issues */
+  margin: 0 auto;
+  top:200px; /* Center the images horizontally within the slider */
 }
 
-.product-name {
+
+.product-name-mobile {
   font-size: 100px;
   font-weight: bold;
   color: black;
@@ -27,7 +35,7 @@
   top:-120px;
 }
 
-.product-price {
+.product-price-mobile {
   font-size: 28px;
   color:rgb(73, 37, 118);
   margin-top: 10px;
@@ -38,7 +46,7 @@
   border: 2px solid rgb(111, 33, 147);
   padding: 5px; 
 }
-.product-description-text {
+.product-description-text-mobile {
   margin-top: 20px;
   line-height: 1.5;
   position: relative;
@@ -48,17 +56,17 @@
   font-size: 5px;
   font-family:'Times New Roman', Times, serif;
 }
-.product-description-text ul {
+.product-description-text-mobile ul {
   list-style: none;
   padding-left: 1em; /* Adjust spacing */
 }
 
-.product-description-text li {
+.product-description-text-mobile li {
   position: relative;
   margin-bottom: 0.5em; /* Adjust spacing between list items */
 }
 
-.product-description-text li::before {
+.product-description-text-mobile li::before {
   content: '\2022'; /* Use the code for your chosen icon */
   position: absolute;
   left: -1em; /* Adjust the distance from the list item */
@@ -68,17 +76,17 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.product-actions {
+.product-actions-mobile {
   margin-top: 20px;
 }
 
 
-.like-button,
-.speak-description-button,
-.add-to-cart-button,
-.buy-now-button {
+.like-button-mobile,
+.speak-description-button-mobile,
+.add-to-cart-button-mobile,
+.buy-now-button-mobile {
   border: none;
-  background-color: #f3f1f0;
+  background-color: #292625;
   color: rgb(4, 4, 4);
   font-size: 18px;
   padding: 10px 20px;
@@ -90,16 +98,19 @@
   top: -140px;
 }
 
-.add-to-cart-button {
+.add-to-cart-button-mobile {
   display: flex;
   align-items: center;
+  background-color: #292625;
 }
 
-.add-to-cart-icon {
+.add-to-cart-icon-mobile {
   margin-right: 5px;
+  color: #292625;
+
 }
 
-.like-icon {
+.like-icon--mobile {
   margin-right: 5px;
   color: #000000;
 }

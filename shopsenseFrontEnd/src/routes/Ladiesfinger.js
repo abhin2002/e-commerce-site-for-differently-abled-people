@@ -1,8 +1,8 @@
 import ProductReviewChat from "../components/ProductReviewChat";
 import Navbard from "../components/Navbard";
-import Image1 from '../images/googlepixel4a-2.jpg';
-import Image2 from '../images/googlepixel4a-1.jpg';
-import Image3 from '../images/googlepixel4a-3.jpg';
+import Image1 from '../images/ladiesfinger-1.jpg';
+import Image2 from '../images/ladiesfinger-2.jpg';
+import Image3 from '../images/ladiesfinger-2.jpg';
 import "./Googlepixel4a.css";
 import Footerdash from "../components/Footerdash"
 import Slider from "react-slick";
@@ -41,16 +41,7 @@ const Ladiesfinger= () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  const productDescription = `Google Pixel 4a , 22,950 Rs . 1. Display: The Pixel 4a features a 5.81-inch OLED display with a resolution of 1080 x 2340 pixels and a pixel density of 443 pixels per inch. It has a 19.5:9 aspect ratio and a hole-punch cutout for the front camera.
-
-  2. Processor: The Pixel 4a is powered by a Qualcomm Snapdragon 730G processor with 6GB of RAM. The processor is designed for gaming and offers smooth performance.
-  
-  Storage: The phone comes with a single storage option of 128GB, which is not expandable via a microSD card.
-  Battery: The Pixel 4a has a 3,140mAh battery with support for 18W fast charging. It also supports USB Power Delivery 2.0.
-  Camera: The phone has a 12.2-megapixel rear camera with an f/1.7 aperture, optical image stabilization (OIS), and dual pixel phase detection autofocus (PDAF). It can record 4K video at 30 frames per second (fps) and 1080p video at up to 120fps. The front-facing camera is an 8-megapixel sensor with an f/2.0 aperture.
-  Software: The Pixel 4a runs on Android 11 out of the box and is eligible for at least three years of OS and security updates.
-  Connectivity: The phone supports dual-band Wi-Fi, Bluetooth 5.0, GPS, NFC, and a USB Type-C port for charging and data transfer.
-  Other features: The Pixel 4a has a rear-mounted fingerprint sensor, an accelerometer, a gyro sensor, a proximity sensor, and a compass. It also has stereo speakers and a 3.5mm headphone jack. `;
+  const productDescription = `Ladies finger,50 Rupees, Ladies finger also known as okra or bhindi, is a green, elongated vegetable with a mild taste and a slightly slippery texture when cooked. It is commonly used in various cuisines around the world, particularly in Indian, Middle Eastern, and Southern U.S. cooking. `;
 
   const settings = {
     dots: true,
@@ -108,34 +99,15 @@ const Ladiesfinger= () => {
         </Slider>
       </div>
       <div className="product-info">
-        <h1 className="product-name"> Google Pixel 4a</h1>
-        <p className="product-price">22,950 Rs</p>
+        <h1 className="product-name">Ladies Finger</h1>
+        <p className="product-price">50Rs</p>
         <div className="product-description-text">
           <ul>
           <li>
-          <p3>Display: The Pixel 4a features a 5.81-inch OLED display with a resolution of 1080 x 2340 pixels and a pixel density of 443 pixels per inch. It has a 19.5:9 aspect ratio and a hole-punch cutout for the front camera.</p3>
+        <p3>Ladies finger, also known as okra or bhindi, is a green, elongated vegetable with a mild taste and a slightly slippery texture when cooked. </p3>
         </li>
         <li>
-<p3>Processor: The Pixel 4a is powered by a Qualcomm Snapdragon 730G processor with 6GB of RAM. The processor is designed for gaming and offers smooth performance.</p3>
-</li>
-<li>
-<p3>Storage: The phone comes with a single storage option of 128GB, which is not expandable via a microSD card.</p3>
-</li>
-<li>
-<p3>Battery: The Pixel 4a has a 3,140mAh battery with support for 18W fast charging. It also supports USB Power Delivery 2.0.</p3>
-</li>
-<li>
-<p3>Camera: The phone has a 12.2-megapixel rear camera with an f/1.7 aperture, optical image stabilization (OIS), and dual pixel phase detection autofocus (PDAF). It can record 4K video at 30 frames per second (fps) and 1080p video at up to 120fps. The front-facing camera is an 8-megapixel sensor with an f/2.0 aperture.</p3>
-</li>
-<li>
-<p3>Software: The Pixel 4a runs on Android 11 out of the box and is eligible for at least three years of OS and security updates.</p3>
-</li>
-<li>
-<p3>Connectivity: The phone supports dual-band Wi-Fi, Bluetooth 5.0, GPS, NFC, and a USB Type-C port for charging and data transfer.</p3>
-</li>
-<li>
-<p3>Other features: The Pixel 4a has a rear-mounted fingerprint sensor, an accelerometer, a gyro sensor, a proximity
-   sensor, and a compass. It also has stereo speakers and a 3.5mm headphone jack.</p3>
+<p3>It is commonly used in various cuisines around the world, particularly in Indian, Middle Eastern, and Southern U.S. cooking.</p3>
 </li>
 
    </ul>
