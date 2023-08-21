@@ -126,12 +126,12 @@ const Dashboard = () => {
       <h1>Recently Added Items</h1>
       <div className="product-row">
         {/* Map through the products and render ProductCard components */}
-        {products.slice(0, 4).map((product) => (
+        {products.slice(0, 3).map((product) => (
           <ProductCard
             key={product._id}
             name={product.name}
             description={product.description}
-            imageUrl={product.images}
+            // Add other product properties here as needed
           />
         ))}
       </div>
@@ -144,7 +144,8 @@ const Dashboard = () => {
             key={product.id}
             name={product.name}
             description={product.description}
-            img src = {product.images}          />
+            imageUrl={product.imageUrl}
+          />
         ))}
         {showMore3 ? (
           initialProducts.slice(3, 5).map((product) => (
