@@ -144,8 +144,7 @@ const Dashboard = () => {
             key={product.id}
             name={product.name}
             description={product.description}
-            imageUrl={product.imageUrl}
-          />
+            img src = {product.images}          />
         ))}
         {showMore3 ? (
           initialProducts.slice(3, 5).map((product) => (
