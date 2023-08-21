@@ -9,7 +9,7 @@ import Signup from "./routes/Signup";
 import Signin from "./routes/Signin";
 import Hero  from "./components/Hero";
 import Dashboard from "./components/Dashboard";
-import Profile from "./routes/profile";
+import Profile from "./routes/Profile";
 import Laptoppageoneadmin from "./routes/Laptoppageoneadmin";
 import Mobilepageone from "./routes/Mobilepageone";
 import Mobilepagetwo from "./routes/Mobilepagetwo";
