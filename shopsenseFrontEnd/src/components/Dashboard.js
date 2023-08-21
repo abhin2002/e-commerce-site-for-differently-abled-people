@@ -101,7 +101,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Fetch data from your API here and update the products state.
-    fetch("http://localhost:4000/api/v1/products")
+    fetch("https://ecommersebackend-elrk.onrender.com/api/v1/products")
       .then((response) => response.json())
       .then((data) => {
         // Assuming your API returns an array of products.

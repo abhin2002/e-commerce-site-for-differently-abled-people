@@ -42,7 +42,7 @@ function Customizeproduct() {
 
   
     
-    const res = await fetch('http://localhost:4000/api/v1/product/new', {
+    const res = await fetch('https://ecommersebackend-elrk.onrender.com/api/v1/product/new', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
