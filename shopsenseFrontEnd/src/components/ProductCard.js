@@ -4,8 +4,8 @@ import './Dashboard.css';
 const ProductCard = ({ name, description, likes,audio,buyNow,imageUrl }) => {
   return (
     <div className="product-card-dash">
-      <div className="product-image-container">
-        <img src={imageUrl} alt={name} className="product-image" />
+      <div className="product-image-container-dash">
+        <img src={imageUrl} alt={name} className="product-image-dash" />
       </div>
       <h2>{name}</h2>
       <p>{description}</p>
