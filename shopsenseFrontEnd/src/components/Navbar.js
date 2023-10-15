@@ -19,7 +19,7 @@ class Navbar extends Component {
            position: "absolute",
            left:"155px"}}/>
         <h1 className="navbar-logo">
-          ShopSense</h1>
+          WeCare</h1>
           
         <div className="menu-icons" onClick={this.handleClick
         }>

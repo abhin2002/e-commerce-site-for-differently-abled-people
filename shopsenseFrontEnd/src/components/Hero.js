@@ -5,7 +5,7 @@ function Hero(){
         <>
         <div className="hero">
             <div className="hero-txt">
-                <h1>ShopSense</h1>
+                <h1>WeCare</h1>
             
                 <p>Shop without limit.See with your heart </p>
                 <a href="/">
